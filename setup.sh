@@ -7,7 +7,6 @@ V="v0.1" # Version number
 
 # Intro text
 echo -e "\n\n\u001b[36mA R C H\u001b[0m T I C \u001b[36m$V\u001b[0m\n\n"
-sleep 3
 
 # Install necessary packages
 yes | sudo pacman -Syu \
