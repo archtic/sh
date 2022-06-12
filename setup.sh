@@ -9,7 +9,7 @@ V="v0.1" # Version number
 echo -e "\n\n\u001b[36mA R C H\u001b[0m T I C \u001b[36m$V\u001b[0m\n\n"
 
 # Install necessary packages
-yes | sudo pacman -Syu \
+yes "" | sudo pacman -Syu \
     base-devel   \ # Build tools
     iwd          \ # Wireless daemon
     zsh          \ # Shell
@@ -31,7 +31,7 @@ yes | sudo pacman -Syu \
 # Install Paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
-yes | makepkg -si
+yes "" | makepkg -si
 cd ..
 rm -rf ./paru
 
@@ -43,7 +43,7 @@ paru -Syu \
 /
 
 wget -qO- $NVM_URL | bash             # Install NVM
-yes | sh -c "$(wget $OMZ_URL -O-)"    # Install OMZ
+yes "" | sh -c "$(wget $OMZ_URL -O-)"    # Install OMZ
 
 # Finalize
 fc-cache                               # Refresh fonts
