@@ -1,10 +1,13 @@
 #!/bin/sh
 
 # Aliases / variables
-alias pac='yes "" | sudo pacman -S'
-alias aur='yes "" | paru -S'
-NVM_URL="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh"
-OMZ_URL="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+alias pac='yes "" | sudo pacman --noconfirm -S'
+alias aur='yes "" | paru --noconfirm -S'
+URL_PARU="https://aur.archlinux.org/paru.git"
+URL_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
+URL_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+URL_DOTBARE="https://github.com/kazhala/dotbare.git"
+PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 V="v0.1" # Version number
 
 # Intro text
@@ -30,7 +33,7 @@ pac htop         # Process viewer
 pac wget         # Fetcher
 
 # Install Paru
-git clone https://aur.archlinux.org/paru.git
+git clone $URL_PARU
 cd paru
 yes "" | makepkg -si
 cd ..
@@ -39,11 +42,11 @@ rm -rf ./paru
 # Paru packages
 paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
-aur dotbare                  # Dotfile manager
 
 # Other stuff
-wget -qO- $NVM_URL | bash             # Install NVM
-yes "" | sh -c "$(wget $OMZ_URL -O-)" # Install OMZ
+wget -qO- $URL_NVM | bash             # Node version manager
+yes | sh -c "$(wget $URL_OMZ -O-)"    # Oh my zsh
+git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
 
 # Finalize
 fc-cache # Refresh fonts
