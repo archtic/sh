@@ -16,7 +16,7 @@ pac base-devel   # Build tools
 pac iwd          # Wireless daemon
 pac zsh          # Shell
 pac xterm        # Fallback terminal emulator
-pac alacritty    # Preferred erminal emulator
+pac alacritty    # Preferred terminal emulator
 pac herbstluftwm # Window manager
 pac neovim       # Editor
 pac fontconfig   # Custom font support
@@ -41,6 +41,7 @@ paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
 aur dotbare                  # Dotfile manager
 
+# Other stuff
 wget -qO- $NVM_URL | bash             # Install NVM
 yes "" | sh -c "$(wget $OMZ_URL -O-)" # Install OMZ
 
