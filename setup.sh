@@ -8,7 +8,7 @@ URL_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
 URL_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 URL_DOTBARE="https://github.com/kazhala/dotbare.git"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
-V="v0.1" # Version number
+V="v0.2" # Version number
 
 # Intro text
 echo -e "\n\n\u001b[36mA R C H\u001b[0m T I C \u001b[36m$V\u001b[0m\n\n"
