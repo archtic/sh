@@ -6,16 +6,17 @@ alias pac='yes "" | sudo pacman --noconfirm --needed -S'
 alias aur='yes "" | paru --noconfirm --needed -S'
 
 # URLs
-URL_PARU="https://aur.archlinux.org/paru.git"
-URL_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
-URL_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-URL_DOTBARE="https://github.com/kazhala/dotbare.git"
-URL_VIM_PLUG="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+U_PARU="https://aur.archlinux.org/paru.git"
+U_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
+U_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+U_DOTBARE="https://github.com/kazhala/dotbare.git"
+U_FZF_TAB="https://github.com/Aloxaf/fzf-tab.git"
+U_VIM_PLUG="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
-PATH_NVM="$HOME/.nvm"
-PATH_OMZ="$HOME/.oh-my-zsh"
-PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
-PATH_VIM_PLUG="$HOME/.local/share/nvim/site/autoload/plug.vim"
+P_NVM="$HOME/.nvm"
+P_OMZ="$HOME/.oh-my-zsh"
+P_OMZ_PLUGINS="$P_OMZ/custom/plugins"
+P_VIM_PLUG="$HOME/.local/share/nvim/site/autoload/plug.vim"
 
 # Colors
 RESET="\e[0m"
@@ -24,7 +25,7 @@ CYAN="${RESET}\e[36;1m"
 YELLOW="${RESET}\e[33;1m"
 
 # Version number
-V="0.12"
+V="0.13"
 
 # Helper functions
 section () {
@@ -69,12 +70,14 @@ pac scrot        # Screen capture
 pac htop         # Process viewer
 pac wget         # Fetcher
 pac figlet       # Goof text
+pac zoxide       # cd alternative
+pac fzf          # Fuzzy finder
 
 section "paru"
 
 # Install Paru
 if [ -z $(command -v paru) ]; then
-    git clone $URL_PARU
+    git clone $U_PARU
     cd paru
     yes "" | makepkg -si
     cd ..
@@ -92,8 +95,8 @@ aur nerd-fonts-cascadia-code # Preferred font
 section "nvm + node"
 
 # Install nvm
-if [ ! -e "$PATH_NVM" ]; then
-    wget -qO- $URL_NVM | bash # Node version manager
+if [ ! -e "$P_NVM" ]; then
+    wget -qO- $U_NVM | bash # Node version manager
 else
     skipping "nvm"
 fi
@@ -109,15 +112,22 @@ nvm use --lts
 section "ohmyzsh"
 
 # Install ohmyzsh
-if [ ! -e "$PATH_OMZ" ]; then
-    yes | sh -c "$(wget $URL_OMZ -O-)"
+if [ ! -e "$P_OMZ" ]; then
+    yes | sh -c "$(wget $U_OMZ -O-)"
 else
     skipping "ohmyzsh"
 fi
 
 # Install OMZ plugin: Dotbare
-if [ ! -e "$PATH_DOTBARE" ]; then
-    git clone $URL_DOTBARE $PATH_DOTBARE 
+if [ ! -e "${P_OMZ_PLUGINS}/dotbare" ]; then
+    git clone $U_DOTBARE $P_OMZ_PLUGINS
+else
+    skipping "dotbare"
+fi
+
+# Install OMZ plugin: fzf-tab
+if [ ! -e "${P_OMZ_PLUGINS}/fzf-tab" ]; then
+    git clone $U_DOTBARE $P_OMZ_PLUGINS
 else
     skipping "dotbare"
 fi
@@ -125,8 +135,8 @@ fi
 section "neovim"
 
 # Install vim-plug (for neovim)
-if [ ! -e "$PATH_VIM_PLUG" ]; then
-    curl -fLo "${PATH_VIM_PLUG} --create-dirs ${URL_VIM_PLUG}"
+if [ ! -e "$P_VIM_PLUG" ]; then
+    curl -fLo "${P_VIM_PLUG} --create-dirs ${U_VIM_PLUG}"
 else
     skipping "vim-plug"
 fi
