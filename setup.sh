@@ -51,7 +51,7 @@ pac wget         # Fetcher
 pac figlet       # Goof text
 
 # Install Paru
-if [ ! $(which paru) ]; then
+if [ -z $(command -v paru) ]; then
     git clone $URL_PARU
     cd paru
     yes "" | makepkg -si
