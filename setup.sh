@@ -15,7 +15,7 @@ URL_VIM_PLUG="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vi
 PATH_NVM="$HOME/.nvm"
 PATH_OMZ="$HOME/.oh-my-zsh"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
-PATH_VIM_PLUG="/.local/share/nvim/site/autoload/plug.vim"
+PATH_VIM_PLUG="$HOME/.local/share/nvim/site/autoload/plug.vim"
 
 # Colors
 RESET="\e[0m"
@@ -24,7 +24,7 @@ CYAN="${RESET}\e[36;1m"
 YELLOW="${RESET}\e[33;1m"
 
 # Version number
-V="0.11"
+V="0.12"
 
 # Helper functions
 section () {
@@ -35,7 +35,8 @@ section () {
 }
 
 skipping () {
-    e "${YELLOW}SKIPPING: $1"
+    e "${YELLOW}SKIPPING: $1 ${RESET}"
+    sleep 1
 }
 
 # Intro text
@@ -46,7 +47,7 @@ e "${CYAN}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      8
 e "${CYAN}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
 e "${RESET}Version $V"
 
-section "pacman"
+section "official packages"
 
 # Install necessary packages
 sudo pacman -Syu
@@ -81,7 +82,9 @@ else
     skipping "paru"
 fi
 
-# Paru packages
+section "aur packages"
+
+# AUR packages
 paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
 
@@ -122,7 +125,7 @@ section "neovim"
 
 # Install vim-plug (for neovim)
 if [ ! -e "$PATH_VIM_PLUG" ]; then
-    curl -fLo "$PATH_VIM_PLUG --create-dirs $URL_VIM_PLUG"
+    curl -fLo "${PATH_VIM_PLUG} --create-dirs ${URL_VIM_PLUG}"
 else
     skipping "vim-plug"
 fi
