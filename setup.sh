@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Aliases
+alias e="echo -e"
 alias pac='yes "" | sudo pacman --noconfirm -S'
 alias aur='yes "" | paru --noconfirm -S'
 
@@ -21,13 +22,13 @@ RESET="\e[0m"
 V="0.5"
 
 # Intro text
-print "${RESET}"
-print "${CYAN_H}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
-print "${CYAN_L}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
-print "${CYAN_H}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
-print "${CYAN_L}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
-print "${CYAN_H}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
-print "${RESET}Version $V"
+e "${RESET}"
+e "${CYAN_H}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
+e "${CYAN_L}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
+e "${CYAN_H}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
+e "${CYAN_L}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
+e "${CYAN_H}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
+e "${RESET}Version $V"
 
 # Install necessary packages
 sudo pacman -Syu
@@ -69,6 +70,6 @@ git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
 fc-cache # Refresh fonts
 
 # Done
-print "${CYAN_H}"
+e "${CYAN_H}"
 figlet Done !
-print "${RESET}"
+e "${RESET}"
