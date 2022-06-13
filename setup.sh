@@ -15,11 +15,11 @@ PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 # Colors
 RESET="\e[0m"
 WHITE="${RESET}\e[37;1m"
-CYAN_L="${RESET}\e[2m\e[36m" # Dim (low)
-CYAN_H="${RESET}\e[36;1m"    # Bright (high)
+CYAN_L="${RESET}\e[36;2m" # Dim (low)
+CYAN_H="${RESET}\e[36;1m" # Bright (high)
 
 # Version number
-V="0.5"
+V="0.6"
 
 # Intro text
 e "${RESET}"
