@@ -28,14 +28,14 @@ V="0.12"
 
 # Helper functions
 section () {
-    e "\n${RESET}Now installing...${CYAN}"
+    e "\n${RESET}Now installing...${CYAN}\n"
     figlet $1
     e "${RESET}"
     sleep 1
 }
 
 skipping () {
-    e "${YELLOW}SKIPPING: $1 ${RESET}"
+    e "${YELLOW}SKIPPING: $1 ${RESET}\n"
     sleep 1
 }
 
@@ -134,7 +134,7 @@ fi
 # Install dotfiles
 section "dotfiles"
 
-printf 'Do you want to download and install dotfiles? [y/n] '
+printf '\nDo you want to download and install dotfiles? [y/n] '
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ]; then
