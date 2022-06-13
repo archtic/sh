@@ -10,6 +10,8 @@ URL_PARU="https://aur.archlinux.org/paru.git"
 URL_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
 URL_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 URL_DOTBARE="https://github.com/kazhala/dotbare.git"
+
+PATH_NVM="$HOME/.nvm"
 PATH_OMZ="$HOME/.oh-my-zsh"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 
@@ -19,7 +21,7 @@ WHITE="${RESET}\e[37;1m"
 CYAN="${RESET}\e[36;1m"
 
 # Version number
-V="0.9"
+V="0.10"
 
 # Intro text
 e "${RESET}"
@@ -65,18 +67,34 @@ fi
 paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
 
-# Other stuff
+# Install nvm
+if [ ! -e "$PATH_NVM" ]; then
+    wget -qO- $URL_NVM | bash # Node version manager
+else
+    echo "SKIPPING: nvm"
+fi
+
+# Load nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Install node (LTS)
+nvm install --lts
+nvm use --lts
+
+# Install ohmyzsh
 if [ ! -e "$PATH_OMZ" ]; then
-    yes | sh -c "$(wget $URL_OMZ -O-)" # Oh my zsh
+    yes | sh -c "$(wget $URL_OMZ -O-)"
 else
     echo "SKIPPING: ohmyzsh"
 fi
 
+# Install OMZ plugin: Dotbare
 if [ ! -e "$PATH_DOTBARE" ]; then
-    git clone $URL_DOTBARE $PATH_DOTBARE # OMZ plugin: Dotbare
+    git clone $URL_DOTBARE $PATH_DOTBARE 
 else
     echo "SKIPPING: dotbare"
-fi 
+fi
 
 # Finalize
 fc-cache # Refresh fonts

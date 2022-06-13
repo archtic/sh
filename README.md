@@ -29,7 +29,10 @@ Installs the following:
 
 * Paru                          # AUR helper
     * nerd-fonts-cascadia-code  # Preferred font
-    
+
 * OhMyZsh                       # ZSH plugin framework
     * dotbare                   # Dotfile manager
+
+* nvm                           # Node version manager
+    * node                      # Node.js javascript env, LTS
 ```
