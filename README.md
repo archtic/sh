@@ -7,27 +7,29 @@ Run this script as your main user after `archinstall` completes and you've reboo
 curl -Lo- https://raw.github.com/archtic/sh/main/setup.sh | sh
 ```
 Installs the following:
-
-* Paru
-    * nerd-fonts-cascadia-code
-* OhMyZsh
-    * dotbare
+```
 * Official packages
-    * base-devel
-    * iwd
-    * zsh
-    * xterm
-    * alacritty
-    * herbstluftwm
-    * neovim
-    * fontconfig
-    * ttf-dejavu
-    * chromium
-    * git
-    * lazygit
-    * feh
-    * scrot
-    * htop
-    * wget
-    * figlet
+    * base-devel                # Build tools
+    * iwd                       # Wireless daemon
+    * zsh                       # Shell
+    * xterm                     # Fallback terminal emulator
+    * alacritty                 # Preferred terminal emulator
+    * herbstluftwm              # Window manager
+    * neovim                    # Editor
+    * fontconfig                # Custom font support
+    * ttf-dejavu                # Fallback font
+    * chromium                  # Web browser
+    * git                       # Source control
+    * lazygit                   # Git terminal UI
+    * feh                       # Image viewer
+    * scrot                     # Screen capture
+    * htop                      # Process viewer
+    * wget                      # Fetcher
+    * figlet                    # Goof text
 
+* Paru                          # AUR helper
+    * nerd-fonts-cascadia-code  # Preferred font
+    
+* OhMyZsh                       # ZSH plugin framework
+    * dotbare                   # Dotfile manager
+```
