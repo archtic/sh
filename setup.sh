@@ -10,6 +10,7 @@ URL_PARU="https://aur.archlinux.org/paru.git"
 URL_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
 URL_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 URL_DOTBARE="https://github.com/kazhala/dotbare.git"
+PATH_OMZ="$HOME/.oh-my-zsh"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 
 # Colors
@@ -63,7 +64,7 @@ paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
 
 # Other stuff
-if [ -z $(command -v omz) ]; then
+if [ ! -e "$PATH_OMZ" ]; then
     yes | sh -c "$(wget $URL_OMZ -O-)" # Oh my zsh
 else
     echo "SKIPPING: ohmyzsh"
