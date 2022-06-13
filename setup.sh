@@ -12,14 +12,20 @@ URL_DOTBARE="https://github.com/kazhala/dotbare.git"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 
 # Colors
+WHITE="\e[37;1m"
 CYAN="\e[36m"
 RESET="\e[0m"
 
 # Version number
-V="v0.3" 
+V="0.4" 
 
 # Intro text
-echo -e "\n\n${CYAN}A R C H ${RESET}T I C ${CYAN}$V${RESET}\n\n"
+echo -e "${CYAN}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
+echo -e "${CYAN}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
+echo -e "${CYAN}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
+echo -e "${CYAN}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
+echo -e "${CYAN}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
+echo -e "${RESET}Version $V"
 
 # Install necessary packages
 sudo pacman -Syu
@@ -61,6 +67,6 @@ git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
 fc-cache # Refresh fonts
 
 # Done
-echo ${CYAN}
-figlet Done
-echo ${RESET}
+echo -e $CYAN
+figlet Done !
+echo -e $RESET
