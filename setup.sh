@@ -18,7 +18,7 @@ WHITE="${RESET}\e[37;1m"
 CYAN="${RESET}\e[36;1m"
 
 # Version number
-V="0.7"
+V="0.8"
 
 # Intro text
 e "${RESET}"
@@ -63,13 +63,13 @@ paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
 
 # Other stuff
-if [ ! $(which nvm) ]; then
+if [ -z $(command -v nvm) ]; then
     wget -qO- $URL_NVM | bash # Node version manager
 else
     echo "SKIPPING: nvm"
 fi
 
-if [ ! $(which omz) ]; then
+if [ -z $(command -v omz) ]; then
     yes | sh -c "$(wget $URL_OMZ -O-)" # Oh my zsh
 else
     echo "SKIPPING: ohmyzsh"
