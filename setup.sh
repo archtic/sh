@@ -50,20 +50,36 @@ pac wget         # Fetcher
 pac figlet       # Goof text
 
 # Install Paru
-git clone $URL_PARU
-cd paru
-yes "" | makepkg -si
-cd ..
-rm -rf ./paru
+if [ ! $(which paru) ]; then
+    git clone $URL_PARU
+    cd paru
+    yes "" | makepkg -si
+    cd ..
+    rm -rf ./paru
+fi
 
 # Paru packages
 paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
 
 # Other stuff
-wget -qO- $URL_NVM | bash             # Node version manager
-yes | sh -c "$(wget $URL_OMZ -O-)"    # Oh my zsh
-git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
+if [ ! $(which nvm) ]; then
+    wget -qO- $URL_NVM | bash # Node version manager
+else
+    echo "SKIPPING: nvm"
+fi
+
+if [ ! $(which omz) ]; then
+    yes | sh -c "$(wget $URL_OMZ -O-)" # Oh my zsh
+else
+    echo "SKIPPING: ohmyzsh"
+fi
+
+if [ ! -e "$PATH_DOTBARE" ]; then
+    git clone $URL_DOTBARE $PATH_DOTBARE # OMZ plugin: Dotbare
+else
+    echo "SKIPPING: dotbare"
+fi 
 
 # Finalize
 fc-cache # Refresh fonts
