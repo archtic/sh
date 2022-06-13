@@ -2,8 +2,8 @@
 
 # Aliases
 alias e="echo -e"
-alias pac='yes "" | sudo pacman --noconfirm -S'
-alias aur='yes "" | paru --noconfirm -S'
+alias pac='yes "" | sudo pacman --noconfirm --needed -S'
+alias aur='yes "" | paru --noconfirm --needed -S'
 
 # URLs
 URL_PARU="https://aur.archlinux.org/paru.git"
