@@ -15,19 +15,18 @@ PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 # Colors
 RESET="\e[0m"
 WHITE="${RESET}\e[37;1m"
-CYAN_L="${RESET}\e[36m\e[2m" # Dim (low)
-CYAN_H="${RESET}\e[36;1m" # Bright (high)
+CYAN="${RESET}\e[36;1m"
 
 # Version number
-V="0.6"
+V="0.7"
 
 # Intro text
 e "${RESET}"
-e "${CYAN_H}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
-e "${CYAN_L}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
-e "${CYAN_H}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
-e "${CYAN_L}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
-e "${CYAN_H}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
+e "${CYAN}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
+e "${CYAN}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
+e "${CYAN}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
+e "${CYAN}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
+e "${CYAN}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
 e "${RESET}Version $V"
 
 # Install necessary packages
@@ -70,6 +69,6 @@ git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
 fc-cache # Refresh fonts
 
 # Done
-e "${CYAN_H}"
+e "${CYAN}"
 figlet Done !
 e "${RESET}"
