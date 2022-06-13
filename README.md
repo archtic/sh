@@ -26,6 +26,10 @@ Installs the following:
     * htop                      # Process viewer
     * wget                      # Fetcher
     * figlet                    # Goof text
+    * zoxide                    # cd alternative
+    * bat                       # cat alternative
+    * fzf                       # Fuzzy finder
+    * tree                      # Recursive directory tree
 
 * Paru                          # AUR helper
     * nerd-fonts-cascadia-code  # Preferred font

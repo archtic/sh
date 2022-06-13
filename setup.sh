@@ -25,7 +25,7 @@ CYAN="${RESET}\e[36;1m"
 YELLOW="${RESET}\e[33;1m"
 
 # Version number
-V="0.13"
+V="0.14"
 
 # Helper functions
 section () {
@@ -71,7 +71,9 @@ pac htop         # Process viewer
 pac wget         # Fetcher
 pac figlet       # Goof text
 pac zoxide       # cd alternative
+pac bat          # cat alternative
 pac fzf          # Fuzzy finder
+pac tree         # Recursive directory tree
 
 section "paru"
 
