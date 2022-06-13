@@ -21,13 +21,13 @@ RESET="\e[0m"
 V="0.4" 
 
 # Intro text
-echo -e $RESET
-echo -e "${CYAN_H}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
-echo -e "${CYAN_L}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
-echo -e "${CYAN_H}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
-echo -e "${CYAN_L}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
-echo -e "${CYAN_H}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
-echo -e "${RESET}Version $V"
+print "${RESET}"
+print "${CYAN_H}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
+print "${CYAN_L}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
+print "${CYAN_H}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
+print "${CYAN_L}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      888 888o     oo"
+print "${CYAN_H}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
+print "${RESET}Version $V"
 
 # Install necessary packages
 sudo pacman -Syu
@@ -69,6 +69,6 @@ git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
 fc-cache # Refresh fonts
 
 # Done
-echo -e $CYAN_H
+print "${CYAN_H}"
 figlet Done !
-echo -e $RESET
+print "${RESET}"
