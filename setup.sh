@@ -16,7 +16,7 @@ CYAN="\e[36m"
 RESET="\e[0m"
 
 # Version number
-V="v0.2" 
+V="v0.3" 
 
 # Intro text
 echo -e "\n\n${CYAN}A R C H ${RESET}T I C ${CYAN}$V${RESET}\n\n"
