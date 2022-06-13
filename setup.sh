@@ -1,17 +1,25 @@
 #!/bin/sh
 
-# Aliases / variables
+# Aliases
 alias pac='yes "" | sudo pacman --noconfirm -S'
 alias aur='yes "" | paru --noconfirm -S'
+
+# URLs
 URL_PARU="https://aur.archlinux.org/paru.git"
 URL_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
 URL_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 URL_DOTBARE="https://github.com/kazhala/dotbare.git"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
-V="v0.2" # Version number
+
+# Colors
+CYAN="\u001b[36m"
+RESET="\u001b[0m"
+
+# Version number
+V="v0.2" 
 
 # Intro text
-echo -e "\n\n\u001b[36mA R C H\u001b[0m T I C \u001b[36m$V\u001b[0m\n\n"
+echo -e "\n\n$CYANA R C H $RESETT I C $CYAN$V$RESET\n\n"
 
 # Install necessary packages
 sudo pacman -Syu
@@ -31,6 +39,7 @@ pac feh          # Image viewer
 pac scrot        # Screen capture
 pac htop         # Process viewer
 pac wget         # Fetcher
+pac figlet       # Goof text
 
 # Install Paru
 git clone $URL_PARU
@@ -50,3 +59,8 @@ git clone $URL_DOTBARE $PATH_DOTBARE  # OMZ plugin: Dotbare
 
 # Finalize
 fc-cache # Refresh fonts
+
+# Done
+echo $CYAN
+figlet Done
+echo $RESET
