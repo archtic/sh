@@ -57,6 +57,8 @@ if [ -z $(command -v paru) ]; then
     yes "" | makepkg -si
     cd ..
     rm -rf ./paru
+else
+    echo "SKIPPING: paru"
 fi
 
 # Paru packages
