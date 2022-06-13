@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Aliases
-alias e="echo -e"
+alias e="printf"
 alias pac='yes "" | sudo pacman --noconfirm --needed -S'
 alias aur='yes "" | paru --noconfirm --needed -S'
 
