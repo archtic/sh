@@ -64,7 +64,7 @@ pac herbstluftwm # Window manager
 pac neovim       # Editor
 pac fontconfig   # Custom font support
 pac ttf-dejavu   # Fallback font
-pac chromium     # Web browser
+pac firefox      # Web browser
 pac git          # Source control
 pac lazygit      # Git terminal UI
 pac feh          # Image viewer

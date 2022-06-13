@@ -18,7 +18,7 @@ Installs the following:
     * neovim                    # Editor
     * fontconfig                # Custom font support
     * ttf-dejavu                # Fallback font
-    * chromium                  # Web browser
+    * firefox                   # Web browser
     * git                       # Source control
     * lazygit                   # Git terminal UI
     * feh                       # Image viewer
