@@ -30,6 +30,7 @@ Installs the following:
     * bat                       # cat alternative
     * fzf                       # Fuzzy finder
     * tree                      # Recursive directory tree
+    * fuse                      # Required for AppImages
 
 * Paru                          # AUR helper
     * nerd-fonts-cascadia-code  # Preferred font
@@ -39,4 +40,7 @@ Installs the following:
 
 * nvm                           # Node version manager
     * node                      # Node.js javascript env, LTS
+
+* AppImages
+    * Bitwarden                 # Password manager
 ```

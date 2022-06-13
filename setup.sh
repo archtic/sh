@@ -12,7 +12,9 @@ U_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 U_DOTBARE="https://github.com/kazhala/dotbare.git"
 U_FZF_TAB="https://github.com/Aloxaf/fzf-tab.git"
 U_VIM_PLUG="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+U_BITWARDEN="https://vault.bitwarden.com/download/?app=desktop&platform=linux"
 
+P_BIN="$HOME/bin"
 P_NVM="$HOME/.nvm"
 P_OMZ="$HOME/.oh-my-zsh"
 P_OMZ_PLUGINS="$P_OMZ/custom/plugins"
@@ -74,6 +76,7 @@ pac zoxide       # cd alternative
 pac bat          # cat alternative
 pac fzf          # Fuzzy finder
 pac tree         # Recursive directory tree
+pac fuse         # Required for AppImages
 
 section "paru"
 
@@ -142,6 +145,20 @@ if [ ! -e "$P_VIM_PLUG" ]; then
 else
     skipping "vim-plug"
 fi
+
+section "appimages"
+
+mkdir -p "$P_BIN"
+
+# AppImage: Bitwarden
+if [ ! -e "${P_BIN}/bitwarden.AppImage" ]; then
+    wget -O "${P_BIN}/bitwarden.AppImage" $U_BITWARDEN
+else
+    skipping "dotbare"
+fi
+
+chmod +x "${P_BIN}/bitwarden"
+
 
 # Install dotfiles
 section "dotfiles"
