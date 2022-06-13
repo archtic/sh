@@ -7,5 +7,5 @@ Currently, this script is meant to run after `archinstall` and a reboot. Ideally
 
 **Run using `curl`:**
 ```
-curl -o- https://raw.github.com/archtic/sh/main/setup.sh | sh
+curl -Lo- https://raw.github.com/archtic/sh/main/setup.sh | sh
 ```
