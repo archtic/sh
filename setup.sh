@@ -13,10 +13,10 @@ URL_DOTBARE="https://github.com/kazhala/dotbare.git"
 PATH_DOTBARE="$HOME/.oh-my-zsh/custom/plugins/dotbare"
 
 # Colors
-WHITE="\e[37;1m"
-CYAN_L="\e[36m"   # Dim (low)
-CYAN_H="\e[36;1m" # Bright (high)
 RESET="\e[0m"
+WHITE="${RESET}\e[37;1m"
+CYAN_L="${RESET}\e[2m\e[36m" # Dim (low)
+CYAN_H="${RESET}\e[36;1m"    # Bright (high)
 
 # Version number
 V="0.5"
