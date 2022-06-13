@@ -28,7 +28,7 @@ V="0.12"
 
 # Helper functions
 section () {
-    e "${RESET}Now installing...${CYAN}"
+    e "\n${RESET}Now installing...${CYAN}"
     figlet $1
     e "${RESET}"
     sleep 1
@@ -40,6 +40,7 @@ skipping () {
 }
 
 # Intro text
+e "\n"
 e "${CYAN}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
 e "${CYAN}    888      888    888 o888     88  888   888  ${WHITE}88  888  88  888 o888     88"
 e "${CYAN}   8  88     888oooo88  888          888ooo888  ${WHITE}    888      888 888        "
