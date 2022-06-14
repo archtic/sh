@@ -35,6 +35,8 @@ Installs the following:
     * man                       # Manual page viewer
     * tldr                      # Simplified manual viewer
     * glow                      # Terminal markdown viewer
+    * nnn                       # Terminal file browser
+    * tmux                      # Terminal multiplexer
 
 
 * Paru                          # AUR helper

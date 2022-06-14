@@ -13,6 +13,7 @@ U_DOTBARE="https://github.com/kazhala/dotbare.git"
 U_FZF_TAB="https://github.com/Aloxaf/fzf-tab.git"
 U_VIM_PLUG="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 U_BITWARDEN="https://vault.bitwarden.com/download/?app=desktop&platform=linux"
+U_NNN_PLUGINS="https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs"
 
 P_BIN="$HOME/bin"
 P_NVM="$HOME/.nvm"
@@ -20,6 +21,7 @@ P_OMZ="$HOME/.oh-my-zsh"
 P_OMZ_PLUGINS="$P_OMZ/custom/plugins"
 P_VIM_PLUG="$HOME/.local/share/nvim/site/autoload/plug.vim"
 P_DOTBARE="$HOME/.cfg"
+P_NNN_PLUGINS="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins"
 
 # Colors
 RESET="\e[0m"
@@ -28,7 +30,7 @@ CYAN="${RESET}\e[36;1m"
 YELLOW="${RESET}\e[33;1m"
 
 # Version number
-V="0.14"
+V="0.15"
 
 # Helper functions
 section () {
@@ -82,6 +84,8 @@ pac fuse         # Required for AppImages
 pac man          # Manual page viewer
 pac tldr         # Simplified manual viewer
 pac glow         # Terminal markdown viewer
+pac nnn          # Terminal file browser
+pac tmux         # Terminal multiplexer
 
 section "paru"
 
@@ -164,6 +168,14 @@ fi
 
 chmod +x "${P_BIN}/bitwarden"
 
+section "nnn"
+
+# Install NNN plugins
+if [ ! -e "$P_NNN_PLUGINS" ]; then
+    curl -Ls $U_NNN_PLUGINS | sh
+else
+    skipping "dotbare"
+fi
 
 # Install dotfiles
 section "dotfiles"
