@@ -37,6 +37,8 @@ Installs the following:
     * glow                      # Terminal markdown viewer
     * nnn                       # Terminal file browser
     * tmux                      # Terminal multiplexer
+    * xorg-xinput               # Input device configuration tool
+
 
 
 * Paru                          # AUR helper
@@ -44,6 +46,8 @@ Installs the following:
 
 * OhMyZsh                       # ZSH plugin framework
     * dotbare                   # Dotfile manager
+    * fzf-tab                   # Fuzzy find on tab
+    * zsh-autosuggestions       # Command autocomplete
 
 * nvm                           # Node version manager
     * node                      # Node.js javascript env, LTS

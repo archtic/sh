@@ -9,8 +9,12 @@ alias aur='yes "" | paru --noconfirm --needed -S'
 U_PARU="https://aur.archlinux.org/paru.git"
 U_NVM="https://raw.github.com/nvm-sh/nvm/v0.39.1/install.sh"
 U_OMZ="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-U_DOTBARE="https://github.com/kazhala/dotbare.git"
-U_FZF_TAB="https://github.com/Aloxaf/fzf-tab.git"
+
+U_ZSH_DOTBARE="https://github.com/kazhala/dotbare.git"
+U_ZSH_FZF_TAB="https://github.com/Aloxaf/fzf-tab.git"
+U_ZSH_AUTOSUGGESTIONS="https://github.com/zsh-users/zsh-autosuggestions.git"
+U_ZSH_SYNTAX_HIGHLIGHTING="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+
 U_VIM_PLUG="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 U_BITWARDEN="https://vault.bitwarden.com/download/?app=desktop&platform=linux"
 U_NNN_PLUGINS="https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs"
@@ -95,6 +99,7 @@ pac tldr         # Simplified manual viewer
 pac glow         # Terminal markdown viewer
 pac nnn          # Terminal file browser
 pac tmux         # Terminal multiplexer
+pac xorg-xinput  # Input device configuration tool
 
 ################################################################################
 
@@ -118,6 +123,7 @@ section "aur packages"
 # AUR packages
 paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
+aur autotiling
 
 ################################################################################
 
@@ -149,8 +155,10 @@ else
     skipping "ohmyzsh"
 fi
 
-omz_plugin "dotbare" "$U_DOTBARE"
-omz_plugin "fzf-tab" "$U_FZF_TAB"
+omz_plugin "dotbare" "$U_ZSH_DOTBARE"
+omz_plugin "fzf-tab" "$U_ZSH_FZF_TAB"
+omz_plugin "zsh-autosuggestions" "$U_ZSH_AUTOSUGGESTIONS"
+omz_plugin "zsh-syntax-highlighting" "$U_ZSH_SYNTAX_HIGHLIGHTING"
 
 ################################################################################
 
