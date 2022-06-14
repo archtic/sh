@@ -30,7 +30,7 @@ CYAN="${RESET}\e[36;1m"
 YELLOW="${RESET}\e[33;1m"
 
 # Version number
-V="0.15"
+V="0.16"
 
 # Helper functions
 section () {
@@ -141,12 +141,13 @@ fi
 
 # Install OMZ plugin: fzf-tab
 if [ ! -e "${P_OMZ_PLUGINS}/fzf-tab" ]; then
-    git clone $U_DOTBARE $P_OMZ_PLUGINS
+    git clone $U_FZF_TAB $P_OMZ_PLUGINS
 else
-    skipping "dotbare"
+    skipping "fzf-tab"
 fi
 
 section "neovim"
+
 
 # Install vim-plug (for neovim)
 if [ ! -e "$P_VIM_PLUG" ]; then
