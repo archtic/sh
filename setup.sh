@@ -19,6 +19,7 @@ P_NVM="$HOME/.nvm"
 P_OMZ="$HOME/.oh-my-zsh"
 P_OMZ_PLUGINS="$P_OMZ/custom/plugins"
 P_VIM_PLUG="$HOME/.local/share/nvim/site/autoload/plug.vim"
+P_DOTBARE="$HOME/.cfg"
 
 # Colors
 RESET="\e[0m"
@@ -166,13 +167,10 @@ chmod +x "${P_BIN}/bitwarden"
 # Install dotfiles
 section "dotfiles"
 
-printf '\nDo you want to download and install dotfiles? [y/n] '
-read answer
-
-if [ "$answer" != "${answer#[Yy]}" ]; then
-    echo "Not implemented"
+if [ ! -e "$P_DOTBARE" ]; then
+    dotbare finit -u https://github.com/archtic/dot.git
 else
-    skipping "dotfiles"
+    skipping "dotbare"
 fi
 
 # Finalize
