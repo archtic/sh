@@ -32,6 +32,8 @@ Installs the following:
     * fzf                       # Fuzzy finder
     * tree                      # Recursive directory tree
     * fuse                      # Required for AppImages
+    * man                       # Manual page viewer
+    * tldr                      # Simplified manual viewer
 
 * Paru                          # AUR helper
     * nerd-fonts-cascadia-code  # Preferred font

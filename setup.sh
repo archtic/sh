@@ -78,6 +78,8 @@ pac bat          # cat alternative
 pac fzf          # Fuzzy finder
 pac tree         # Recursive directory tree
 pac fuse         # Required for AppImages
+pac man          # Manual page viewer
+pac tldr         # Simplified manual viewer
 
 section "paru"
 
