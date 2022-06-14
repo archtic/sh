@@ -60,7 +60,8 @@ pac iwd          # Wireless daemon
 pac zsh          # Shell
 pac xterm        # Fallback terminal emulator
 pac alacritty    # Preferred terminal emulator
-pac herbstluftwm # Window manager
+pac i3-gaps      # Window manager
+pac polybar      # Status bar
 pac neovim       # Editor
 pac fontconfig   # Custom font support
 pac ttf-dejavu   # Fallback font

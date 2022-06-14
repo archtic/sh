@@ -14,7 +14,8 @@ Installs the following:
     * zsh                       # Shell
     * xterm                     # Fallback terminal emulator
     * alacritty                 # Preferred terminal emulator
-    * herbstluftwm              # Window manager
+    * i3-gaps                   # Window manager
+    * polybar                   # Status bar
     * neovim                    # Editor
     * fontconfig                # Custom font support
     * ttf-dejavu                # Fallback font
