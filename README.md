@@ -34,6 +34,8 @@ Installs the following:
     * fuse                      # Required for AppImages
     * man                       # Manual page viewer
     * tldr                      # Simplified manual viewer
+    * glow                      # Terminal markdown viewer
+
 
 * Paru                          # AUR helper
     * nerd-fonts-cascadia-code  # Preferred font

@@ -81,6 +81,7 @@ pac tree         # Recursive directory tree
 pac fuse         # Required for AppImages
 pac man          # Manual page viewer
 pac tldr         # Simplified manual viewer
+pac glow         # Terminal markdown viewer
 
 section "paru"
 
