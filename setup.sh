@@ -30,7 +30,7 @@ CYAN="${RESET}\e[36;1m"
 YELLOW="${RESET}\e[33;1m"
 
 # Version number
-V="0.16"
+V="0.17"
 
 # Helper functions
 section () {
@@ -45,6 +45,14 @@ skipping () {
     sleep 1
 }
 
+omz_plugin () {
+    if [ ! -e "${P_OMZ_PLUGINS}/${1}" ]; then
+    git clone $2 $P_OMZ_PLUGINS
+    else
+        skipping $1
+    fi
+}
+
 # Intro text
 e "\n"
 e "${CYAN}     o      oooooooooo    oooooooo8 ooooo ooooo ${WHITE}ooooooooooo ooooo  oooooooo8"
@@ -54,9 +62,10 @@ e "${CYAN}  8oooo88    888  88o   888o     oo  888   888  ${WHITE}    888      8
 e "${CYAN}o88o  o888o o888o  88o8  888oooo88  o888o o888o ${WHITE}   o888o    o888o 888oooo88 "
 e "${RESET}Version $V"
 
+################################################################################
+
 section "official packages"
 
-# Install necessary packages
 sudo pacman -Syu
 pac base-devel   # Build tools
 pac iwd          # Wireless daemon
@@ -87,6 +96,8 @@ pac glow         # Terminal markdown viewer
 pac nnn          # Terminal file browser
 pac tmux         # Terminal multiplexer
 
+################################################################################
+
 section "paru"
 
 # Install Paru
@@ -100,11 +111,15 @@ else
     skipping "paru"
 fi
 
+################################################################################
+
 section "aur packages"
 
 # AUR packages
 paru -Syu
 aur nerd-fonts-cascadia-code # Preferred font
+
+################################################################################
 
 section "nvm + node"
 
@@ -123,6 +138,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install --lts
 nvm use --lts
 
+################################################################################
+
 section "ohmyzsh"
 
 # Install ohmyzsh
@@ -132,22 +149,12 @@ else
     skipping "ohmyzsh"
 fi
 
-# Install OMZ plugin: Dotbare
-if [ ! -e "${P_OMZ_PLUGINS}/dotbare" ]; then
-    git clone $U_DOTBARE $P_OMZ_PLUGINS
-else
-    skipping "dotbare"
-fi
+omz_plugin "dotbare" "$U_DOTBARE"
+omz_plugin "fzf-tab" "$U_FZF_TAB"
 
-# Install OMZ plugin: fzf-tab
-if [ ! -e "${P_OMZ_PLUGINS}/fzf-tab" ]; then
-    git clone $U_FZF_TAB $P_OMZ_PLUGINS
-else
-    skipping "fzf-tab"
-fi
+################################################################################
 
 section "neovim"
-
 
 # Install vim-plug (for neovim)
 if [ ! -e "$P_VIM_PLUG" ]; then
@@ -155,6 +162,8 @@ if [ ! -e "$P_VIM_PLUG" ]; then
 else
     skipping "vim-plug"
 fi
+
+################################################################################
 
 section "appimages"
 
@@ -169,6 +178,8 @@ fi
 
 chmod +x "${P_BIN}/bitwarden"
 
+################################################################################
+
 section "nnn"
 
 # Install NNN plugins
@@ -178,7 +189,8 @@ else
     skipping "dotbare"
 fi
 
-# Install dotfiles
+################################################################################
+
 section "dotfiles"
 
 if [ ! -e "$P_DOTBARE" ]; then
