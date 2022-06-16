@@ -51,7 +51,7 @@ skipping () {
 
 omz_plugin () {
     if [ ! -e "${P_OMZ_PLUGINS}/${1}" ]; then
-        git clone $2 $P_OMZ_PLUGINS
+        git clone $2 $P_OMZ_PLUGINS/$1
     else
         skipping $1
     fi
